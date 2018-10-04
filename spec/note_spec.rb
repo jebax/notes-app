@@ -16,7 +16,7 @@ describe Notes do
     it 'should list all note titles' do
       notes.add("Note 1", "Body")
       notes.add("Note 2", "Body")
-      expect(notes.titles_list).to eq "Your notes:\nNote 1\nNote2\n"
+      expect { notes.titles_list }.to output("Your notes:\nNote 1\nNote 2\n").to_stdout
     end
   end
 end
