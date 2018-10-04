@@ -10,4 +10,9 @@ class Notes
     @all_notes[title] = body
   end
 
+  def titles_list
+    puts "Your notes:"
+    puts @all_notes.keys
+  end
+
 end
