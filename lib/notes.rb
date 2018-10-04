@@ -15,4 +15,8 @@ class Notes
     puts @all_notes.keys
   end
 
+  def print_specific_note(title)
+    puts @all_notes[title]
+  end
+
 end

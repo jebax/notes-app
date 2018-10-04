@@ -24,7 +24,7 @@ describe Notes do
     it 'should print a note from a given title' do
       notes.add("Note 1", "This is the body for note 1.")
       notes.add("Note 2", "This is the body for note 2.")
-      expect { notes.print_specific_note("Note 1")}.to output("This is the body for note 1.").to_stdout
+      expect { notes.print_specific_note("Note 1")}.to output("This is the body for note 1.\n").to_stdout
     end
   end
 end
