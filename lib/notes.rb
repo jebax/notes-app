@@ -1,2 +1,4 @@
 class Notes
+
+
 end
