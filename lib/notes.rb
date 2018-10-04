@@ -11,6 +11,7 @@ class Notes
   end
 
   def titles_list
+    raise "There are no notes to print!" if @all_notes.empty?
     puts "Your notes:"
     puts @all_notes.keys
   end

@@ -18,6 +18,10 @@ describe Notes do
       notes.add("Note 2", "Body")
       expect { notes.titles_list }.to output("Your notes:\nNote 1\nNote 2\n").to_stdout
     end
+
+    it 'should raise an error if there are no stored notes' do
+      expect { notes.titles_list }.to raise_error "There are no notes to print!"
+    end
   end
 
   describe "#print_specific_note" do
