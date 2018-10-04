@@ -6,9 +6,13 @@ describe Notes do
 
   describe "#add" do
     it 'should add a note to the collection of notes' do
-      title, body = "My first note", "Pick up milk on the way home"
-      notes.add(title, body)
+      notes.add("Note 1", "Body")
       expect(notes.all_notes).not_to be_empty
+    end
+
+    it 'should raise an error if the note title already exists' do
+      notes.add("Note 1", "Body")
+      expect { notes.add("Note 1", "Body") }.to raise_error "Note title already exists!"
     end
   end
 

@@ -7,6 +7,7 @@ class Notes
   end
 
   def add(title, body)
+    raise "Note title already exists!" if @all_notes.keys.include? title
     @all_notes[title] = body
   end
 
