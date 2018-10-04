@@ -1,4 +1,5 @@
-require 'note'
+require 'notes'
 
-describe Note do
+describe Notes do
+
 end
