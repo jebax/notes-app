@@ -4,6 +4,7 @@ require 'pry'
 describe Notes do
   let(:notes) { subject }
   let(:add_test_note) { notes.add("Note 1", "Body") }
+  let(:add_second_note) { notes.add("Note 2", "Body") }
 
   describe "#add" do
     it 'should add a note to the collection of notes' do
@@ -19,8 +20,8 @@ describe Notes do
 
   describe "#titles_list" do
     it 'should list all note titles' do
-      notes.add("Note 1", "Body")
-      notes.add("Note 2", "Body")
+      add_test_note
+      add_second_note
       expect { notes.titles_list }.to output("Your notes:\nNote 1\nNote 2\n").to_stdout
     end
 
@@ -31,13 +32,13 @@ describe Notes do
 
   describe "#print_specific_note" do
     it 'should print a note from a given title' do
-      notes.add("Note 1", "This is the body for note 1.")
-      notes.add("Note 2", "This is the body for note 2.")
-      expect { notes.print_specific_note("Note 1") }.to output("Note 1: This is the body for note 1.\n").to_stdout
+      add_test_note
+      add_second_note
+      expect { notes.print_specific_note("Note 1") }.to output("Note 1: Body\n").to_stdout
     end
 
     it 'should raise an error if the specified note does not exist' do
-      notes.add("Note 1", "Body")
+      add_test_note
       expect { notes.print_specific_note("Note 2") }.to raise_error "Specified note does not exist!"
     end
   end
