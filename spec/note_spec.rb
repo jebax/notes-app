@@ -6,12 +6,12 @@ describe Notes do
   let(:add_test_note) { notes.add("Note 1", "Body") }
   let(:add_second_note) { notes.add("Note 2", "Body") }
 
-  describe "#add" do
-    it 'should add a note to the collection of notes' do
-      add_test_note
-      expect(notes.all_notes).not_to be_empty
-    end
+  it 'should add a note to the list then print it out' do
+    add_test_note
+    expect { notes.titles_list }.to output("Your notes:\nNote 1\n").to_stdout
+  end
 
+  describe "#add" do
     it 'should raise an error if the note title already exists' do
       add_test_note
       expect { notes.add("Note 1", "Body") }.to raise_error "Note title already exists!"
@@ -19,7 +19,7 @@ describe Notes do
   end
 
   describe "#titles_list" do
-    it 'should list all note titles' do
+    it 'should list multiple note titles' do
       add_test_note
       add_second_note
       expect { notes.titles_list }.to output("Your notes:\nNote 1\nNote 2\n").to_stdout
@@ -34,7 +34,7 @@ describe Notes do
     it 'should print a note from a given title' do
       add_test_note
       add_second_note
-      expect { notes.print_specific_note("Note 1") }.to output("Note 1: Body\n").to_stdout
+      expect(notes.print_specific_note("Note 1")).to eq "Note 1: Body"
     end
 
     it 'should raise an error if the specified note does not exist' do

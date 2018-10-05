@@ -19,7 +19,7 @@ class Notes
 
   def print_specific_note(title)
     raise "Specified note does not exist!" unless @all_notes[title]
-    puts "#{title}: #{@all_notes[title]}"
+    "#{title}: #{@all_notes[title]}"
   end
 
 end
