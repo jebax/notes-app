@@ -1,7 +1,4 @@
 class Notes
-
-  attr_reader :all_notes
-
   def initialize
     @all_notes = {}
   end
@@ -21,5 +18,4 @@ class Notes
     raise "Specified note does not exist!" unless @all_notes[title]
     "#{title}: #{@all_notes[title]}"
   end
-
 end
